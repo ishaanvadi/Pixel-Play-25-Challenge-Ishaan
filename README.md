@@ -93,10 +93,10 @@ python
 
 ### Low-Confidence Detection:
 
-After obtaining the predictions, I monitored the confidence scores for each predicted class. If the confidence score was below 0.04, the prediction was classified as low confidence.
+After obtaining the predictions, I monitored the confidence scores for each predicted class. If the confidence score was below 0.045, the prediction was classified as low confidence.
 
 Threshold for low-confidence predictions
-    _threshold = 0.04_    
+    _threshold = 0.045_    
 
 > Filter low-confidence predictions
     _low_confidence_images = [image for image, score in zip(test_images, predictions) if max(score) < threshold]_    
@@ -115,26 +115,24 @@ I leveraged a predicate-based binary matrix (predefined relationships between cl
         return prediction_    
     
 > CSV Logging:
-Predictions with confidence ≥ 0.04 were logged into a CSV file for submission. Low-confidence images were separately recorded in another CSV for further analysis.
+Predictions with confidence ≥ 0.045 were logged into a CSV file for submission. Low-confidence images were separately recorded in another CSV for further analysis.
 
 
 ## **3. Output Generation**
 
-Final Predictions: For images with confidence scores greater than or equal to 0.04, I logged predictions in a CSV file (predict_with_confidence.csv) for submission.
+Final Predictions: For images with confidence scores greater than or equal to 0.045, I logged predictions in a CSV file (predict_with_confidence.csv) for submission.
 Low-Confidence Handling: Images with confidence scores below the threshold were moved to a new directory (test_new) and processed using Zero-Shot Learning for further classification.
 
 ## **Results**
 * Accuracy for 40 Seen Classes:
   
-The pretrained ResNet50 model achieved high accuracy on the 40 seen classes, with accuracy of 95.5%.
+The pretrained ResNet50 model predicted 2300/3000 images in the test set with good to high confidence level. The rest of the images were low confidence and sent for zero shot method.
 
-* Accuracy for 10 Unseen Classes:
-  
-After applying Zero-Shot Learning to the low-confidence predictions, the model successfully classified the 10 unseen classes with an accuracy of 75-80%.
+The combined accuracy came out to be around 76%
 
 * Low-Confidence Detection:
   
-The method of setting a confidence threshold of 0.04 was effective in filtering out uncertain predictions. These images were flagged for further processing using Zero-Shot Learning, ensuring reliable predictions.
+The method of setting a confidence threshold of 0.045 was effective in filtering out uncertain predictions. These images were flagged for further processing using Zero-Shot Learning, ensuring reliable predictions.
 
 
 **Challenges and Solutions**
@@ -143,7 +141,7 @@ The method of setting a confidence threshold of 0.04 was effective in filtering 
 The most challenging aspect was handling the 10 unseen classes. Zero-Shot Learning helped address this by leveraging semantic relationships between classes, allowing the model to classify unseen images even without explicit training data for those classes.
 
 2.Low-Confidence Predictions:
-To avoid incorrect classifications, I set a confidence threshold of 0.04 to identify low-confidence images, ensuring they were processed with caution and passed to Zero-Shot Learning for better classification.
+To avoid incorrect classifications, I set a confidence threshold of 0.045 to identify low-confidence images, ensuring they were processed with caution and passed to Zero-Shot Learning for better classification.
 
 3.Overfitting:
 To combat overfitting, I employed Dropout (0.5 rate) and L2 regularization on the dense layers, improving the model’s generalization.
