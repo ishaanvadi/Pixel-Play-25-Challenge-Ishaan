@@ -27,7 +27,7 @@ I used Adam optimizer with an initial learning rate of 1e-5 and L2 regularizatio
 The learning rate was dynamically adjusted using a LearningRateScheduler and ReduceLROnPlateau callbacks to reduce the learning rate when the validation loss plateaued.
 Model Training:
 
-The model was trained for 15 epochs with validation data, and I used callbacks to dynamically adjust the learning rate and monitor overfitting.
+The model was trained for 20 epochs with validation data, and I used callbacks to dynamically adjust the learning rate and monitor overfitting.
 
 **2. Classifying the 10 Unseen Classes Using Zero-Shot Learning**
 
