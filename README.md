@@ -95,10 +95,13 @@ python
 
 After obtaining the predictions, I monitored the confidence scores for each predicted class. If the confidence score was below 0.045, the prediction was classified as low confidence.
 
+
 Threshold for low-confidence predictions
     _threshold = 0.045_    
 
+
 > Filter low-confidence predictions
+
     _low_confidence_images = [image for image, score in zip(test_images, predictions) if max(score) < threshold]_    
 
 These low-confidence images were identified and moved to a separate folder for further processing.
@@ -128,7 +131,7 @@ Low-Confidence Handling: Images with confidence scores below the threshold were 
   
 The pretrained ResNet50 model predicted 2300/3000 images in the test set with good to high confidence level. The rest of the images were low confidence and sent for zero shot method.
 
-The combined accuracy came out to be around 76%
+The combined accuracy came out to be around 71%
 
 * Low-Confidence Detection:
   
