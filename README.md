@@ -126,7 +126,7 @@ Low-Confidence Handling: Images with confidence scores below the threshold were 
 ## **Results**
 * Accuracy for 40 Seen Classes:
   
-The pretrained ResNet50 model achieved high accuracy on the 40 seen classes, with accuracy ranging from 93-95%.
+The pretrained ResNet50 model achieved high accuracy on the 40 seen classes, with accuracy of 95.5%.
 
 * Accuracy for 10 Unseen Classes:
   
