@@ -1,4 +1,5 @@
 ****Pixel Play'25 Challenge - Animal Classification Overview****
+
 In the Pixel Play'25 Challenge, the task was to classify images into 50 distinct animal classes. The training dataset consisted of images from 40 classes, and the test set contained images from all 50 classes, including 10 unseen classes. My approach leveraged a pretrained ResNet50 model for the 40 seen classes and Zero-Shot Learning to handle the unseen classes.
 
 ****Approach****
